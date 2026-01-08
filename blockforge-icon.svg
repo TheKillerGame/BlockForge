@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc6a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12121a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#darkGradient)"/>
+  <rect x="8" y="8" width="496" height="496" rx="72" fill="none" stroke="url(#primaryGradient)" stroke-width="4"/>
+
+  <!-- 3D Block/Cube - Centered and larger -->
+  <g filter="url(#glow)" transform="translate(256, 230)">
+    <!-- Top face -->
+    <polygon points="0,-120 110,-60 0,0 -110,-60" fill="#00ff88"/>
+    <!-- Left face -->
+    <polygon points="-110,-60 0,0 0,110 -110,50" fill="#00cc6a"/>
+    <!-- Right face -->
+    <polygon points="110,-60 0,0 0,110 110,50" fill="#009955"/>
+
+    <!-- Grid pattern on top face -->
+    <line x1="-55" y1="-90" x2="55" y2="-30" stroke="#0a0a0f" stroke-width="3" opacity="0.25"/>
+    <line x1="-55" y1="-30" x2="55" y2="-90" stroke="#0a0a0f" stroke-width="3" opacity="0.25"/>
+    <line x1="0" y1="-120" x2="0" y2="0" stroke="#0a0a0f" stroke-width="2" opacity="0.15"/>
+    <line x1="-110" y1="-60" x2="110" y2="-60" stroke="#0a0a0f" stroke-width="2" opacity="0.15"/>
+
+    <!-- Pixel-style details on faces -->
+    <rect x="-80" y="-10" width="20" height="35" fill="#0a0a0f" opacity="0.15"/>
+    <rect x="60" y="-10" width="20" height="35" fill="#0a0a0f" opacity="0.1"/>
+  </g>
+
+  <!-- Anvil/Forge base -->
+  <g transform="translate(256, 340)">
+    <path d="M-70,30 L-85,70 L85,70 L70,30 Z" fill="#3a3a4a"/>
+    <path d="M-55,0 L-70,30 L70,30 L55,0 Z" fill="#4a4a5a"/>
+    <path d="M55,0 L95,8 L95,22 L70,30 L55,0" fill="#3a3a4a"/>
+    <path d="M-50,3 L-65,28 L65,28 L50,3 Z" fill="#5a5a6a" opacity="0.4"/>
+  </g>
+
+  <!-- Forge sparks -->
+  <g filter="url(#glow)">
+    <circle cx="150" cy="150" r="6" fill="#00ff88" opacity="0.9"/>
+    <circle cx="360" cy="140" r="5" fill="#00ff88" opacity="0.7"/>
+    <circle cx="180" cy="120" r="4" fill="#00ff88" opacity="0.8"/>
+    <circle cx="380" cy="180" r="4" fill="#00ff88" opacity="0.6"/>
+    <circle cx="130" cy="190" r="3" fill="#00ff88" opacity="0.7"/>
+    <circle cx="340" cy="110" r="3" fill="#00ff88" opacity="0.5"/>
+  </g>
+</svg>

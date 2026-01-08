@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc6a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#12121a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feComponentTransfer in="SourceAlpha">
+        <feFuncA type="table" tableValues="1 0" />
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feComposite in2="SourceAlpha" operator="in" />
+      <feMerge>
+        <feMergeNode in="SourceGraphic" />
+        <feMergeNode />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#darkGradient)" stroke="url(#primaryGradient)" stroke-width="4"/>
+
+  <!-- 3D Block/Cube -->
+  <g filter="url(#glow)" transform="translate(256, 220)">
+    <!-- Top face -->
+    <polygon points="0,-80 70,-40 0,0 -70,-40" fill="#00ff88" opacity="1"/>
+    <!-- Left face -->
+    <polygon points="-70,-40 0,0 0,70 -70,30" fill="#00cc6a" opacity="0.9"/>
+    <!-- Right face -->
+    <polygon points="70,-40 0,0 0,70 70,30" fill="#009955" opacity="0.8"/>
+
+    <!-- Grid lines on top -->
+    <line x1="-35" y1="-60" x2="35" y2="-20" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+    <line x1="-35" y1="-20" x2="35" y2="-60" stroke="#0a0a0f" stroke-width="2" opacity="0.3"/>
+
+    <!-- Pixel details -->
+    <rect x="-20" y="-50" width="12" height="12" fill="#0a0a0f" opacity="0.2" transform="rotate(-30)"/>
+    <rect x="15" y="-35" width="8" height="8" fill="#0a0a0f" opacity="0.15" transform="rotate(-30)"/>
+  </g>
+
+  <!-- Anvil/Forge Element -->
+  <g transform="translate(256, 280)">
+    <!-- Anvil base -->
+    <path d="M-50,40 L-60,60 L60,60 L50,40 Z" fill="#444455"/>
+    <!-- Anvil top -->
+    <path d="M-40,20 L-50,40 L50,40 L40,20 Z" fill="#555566"/>
+    <!-- Anvil horn -->
+    <path d="M40,20 L70,25 L70,35 L50,40 L40,20" fill="#444455"/>
+    <!-- Highlight -->
+    <path d="M-35,22 L-45,38 L45,38 L35,22 Z" fill="#666677" opacity="0.5"/>
+  </g>
+
+  <!-- Sparks/Forge particles -->
+  <g filter="url(#glow)">
+    <circle cx="180" cy="180" r="4" fill="#00ff88" opacity="0.8"/>
+    <circle cx="320" cy="170" r="3" fill="#00ff88" opacity="0.6"/>
+    <circle cx="200" cy="150" r="2" fill="#00ff88" opacity="0.7"/>
+    <circle cx="340" cy="200" r="3" fill="#00ff88" opacity="0.5"/>
+    <circle cx="160" cy="210" r="2" fill="#00ff88" opacity="0.6"/>
+  </g>
+
+  <!-- Text: BLOCK FORGE -->
+  <text x="256" y="400" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="42" font-weight="900" fill="url(#primaryGradient)" filter="url(#glow)">
+    BLOCK FORGE
+  </text>
+
+  <!-- Subtitle -->
+  <text x="256" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#a0a0b0" letter-spacing="4">
+    INTERSPACESTUDIOS
+  </text>
+</svg>

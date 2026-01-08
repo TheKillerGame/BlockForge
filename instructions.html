@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide | Block Forge by InterSpaceStudios</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Instructions Page Styles ===== */
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .instructions-page {
+            padding-top: 80px;
+        }
+
+        .instructions-hero {
+            text-align: center;
+            padding: 80px 5% 60px;
+            background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+        }
+
+        .instructions-hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--primary);
+            text-shadow: var(--glow);
+            margin-bottom: 1rem;
+        }
+
+        .instructions-hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+        }
+
+        .instructions-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 5% 80px;
+        }
+
+        /* ===== Section Headers ===== */
+        .instruction-section {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .instruction-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* ===== Step Cards ===== */
+        .step-card {
+            display: flex;
+            gap: 2rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: rgba(0, 255, 136, 0.3);
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-1);
+            color: var(--bg-dark);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            border-radius: 12px;
+        }
+
+        .step-content h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .step-content a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .step-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Step Tip ===== */
+        .step-tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .tip-icon {
+            font-size: 1.3rem;
+        }
+
+        .step-tip span:last-child {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ===== OS Tabs ===== */
+        .os-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .os-tab {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background: var(--bg-dark);
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .os-tab:hover {
+            border-color: var(--primary);
+            color: var(--text-primary);
+        }
+
+        .os-tab.active {
+            background: rgba(0, 255, 136, 0.15);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .os-content {
+            display: none;
+            padding: 1rem;
+            background: var(--bg-dark);
+            border-radius: 8px;
+        }
+
+        .os-content.active {
+            display: block;
+        }
+
+        .os-content ol {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .os-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .os-content code {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* ===== Launch Options ===== */
+        .launch-options {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .launch-options li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .option-icon {
+            font-size: 1.5rem;
+        }
+
+        /* ===== Setup Steps ===== */
+        .setup-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .setup-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .setup-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .setup-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-primary);
+        }
+
+        .setup-text p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== Play Features ===== */
+        .play-features {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .play-feature {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .play-feature span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .play-feature p {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ===== FAQ / Troubleshooting ===== */
+        .troubleshooting {
+            margin-top: 80px;
+        }
+
+        .faq-container {
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+        }
+
+        .faq-item.active .faq-question {
+            border-color: var(--primary);
+            border-radius: 10px 10px 0 0;
+            background: var(--bg-card-hover);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p,
+        .faq-answer ol {
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .faq-answer ol {
+            padding-top: 0;
+            margin-left: 1.5rem;
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer a {
+            color: var(--primary);
+        }
+
+        .faq-answer code {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        /* ===== Requirements Grid ===== */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 60px;
+        }
+
+        .requirements-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            position: relative;
+        }
+
+        .requirements-card.recommended {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--gradient-1);
+            color: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .requirements-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .requirements-card ul {
+            list-style: none;
+        }
+
+        .requirements-card li {
+            padding: 0.6rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .requirements-card li:last-child {
+            border-bottom: none;
+        }
+
+        .requirements-card li strong {
+            color: var(--text-primary);
+        }
+
+        /* ===== Help Section ===== */
+        .help-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(0, 255, 136, 0.1) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+
+        .help-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .help-section > .help-content > p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .help-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-discord {
+            background: #5865F2;
+            color: white;
+            border: none;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .step-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .os-tabs {
+                flex-direction: column;
+            }
+
+            .setup-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .play-features {
+                flex-direction: column;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-buttons {
+                flex-direction: column;
+            }
+
+            .help-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .instructions-hero {
+                padding: 60px 5% 40px;
+            }
+
+            .instruction-section {
+                margin: 40px 0 30px;
+            }
+
+            .step-card {
+                padding: 1.5rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">&#9638;</span>
+                <span class="logo-text">Block Forge</span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#download">Download</a></li>
+            <li><a href="instructions.html" class="active">Instructions</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <main class="instructions-page">
+        <div class="instructions-hero">
+            <h1>Installation Guide</h1>
+            <p>Get Block Forge up and running in just a few minutes</p>
+        </div>
+
+        <div class="instructions-container">
+            <!-- Quick Start -->
+            <section class="instruction-section">
+                <div class="section-icon">&#9889;</div>
+                <h2>Quick Start</h2>
+                <p class="section-description">Follow these simple steps to install and launch Block Forge on your computer.</p>
+            </section>
+
+            <!-- Step 1 -->
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Download Block Forge</h3>
+                    <p>Head to our <a href="index.html#download">download page</a> and select your Minecraft version from the dropdown menu. Then click the download button for your operating system (Windows, macOS, or Linux).</p>
+                    <div class="step-tip">
+                        <span class="tip-icon">&#128161;</span>
+                        <span>All versions are included in one installer - selecting a version just sets the default when you launch!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Run the Installer</h3>
+                    <p>Locate the downloaded file and double-click to run it.</p>
+
+                    <div class="os-tabs">
+                        <button class="os-tab active" data-os="windows">Windows</button>
+                        <button class="os-tab" data-os="mac">macOS</button>
+                        <button class="os-tab" data-os="linux">Linux</button>
+                    </div>
+
+                    <div class="os-content active" id="windows">
+                        <ol>
+                            <li>Find <code>BlockForge.zip</code> in your Downloads folder</li>
+                            <li>Right-click the ZIP file and select <strong>"Extract All..."</strong></li>
+                            <li>Open the extracted folder and find <code>BlockForge-Setup.exe</code></li>
+                            <li>Double-click to run the installer</li>
+                            <li>If Windows SmartScreen appears, click <strong>"More info"</strong> then <strong>"Run anyway"</strong></li>
+                            <li>Follow the installation wizard prompts</li>
+                            <li>Choose your installation directory (default is recommended)</li>
+                            <li>Click <strong>"Install"</strong> and wait for completion</li>
+                        </ol>
+                    </div>
+
+                    <div class="os-content" id="mac">
+                        <ol>
+                            <li>Find <code>BlockForge.zip</code> in your Downloads folder</li>
+                            <li>Double-click to extract the ZIP file</li>
+                            <li>Open the extracted folder and find <code>BlockForge.dmg</code></li>
+                            <li>Double-click the DMG to mount the disk image</li>
+                            <li>Drag the Block Forge icon to your Applications folder</li>
+                            <li>If blocked by Gatekeeper, go to <strong>System Preferences → Security & Privacy</strong></li>
+                            <li>Click <strong>"Open Anyway"</strong> next to the Block Forge message</li>
+                        </ol>
+                    </div>
+
+                    <div class="os-content" id="linux">
+                        <ol>
+                            <li>Find <code>BlockForge.zip</code> in your Downloads folder</li>
+                            <li>Extract the ZIP: <code>unzip BlockForge.zip</code></li>
+                            <li>Navigate to the extracted folder: <code>cd BlockForge</code></li>
+                            <li>Make the file executable: <code>chmod +x BlockForge.AppImage</code></li>
+                            <li>Run the installer: <code>./BlockForge.AppImage</code></li>
+                            <li>Alternatively, right-click → Properties → Permissions → Allow executing as program</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Launch Block Forge</h3>
+                    <p>Once installed, you can launch Block Forge from:</p>
+                    <ul class="launch-options">
+                        <li><span class="option-icon">&#128187;</span> <strong>Desktop shortcut</strong> - Double-click the Block Forge icon</li>
+                        <li><span class="option-icon">&#128269;</span> <strong>Start Menu / Applications</strong> - Search for "Block Forge"</li>
+                        <li><span class="option-icon">&#128193;</span> <strong>Installation folder</strong> - Run BlockForge.exe directly</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Initial Setup</h3>
+                    <p>When you first launch Block Forge, you'll need to complete a quick setup:</p>
+                    <div class="setup-steps">
+                        <div class="setup-item">
+                            <div class="setup-icon">&#128100;</div>
+                            <div class="setup-text">
+                                <h4>Create Your Profile</h4>
+                                <p>Enter your username and customize your player skin</p>
+                            </div>
+                        </div>
+                        <div class="setup-item">
+                            <div class="setup-icon">&#127918;</div>
+                            <div class="setup-text">
+                                <h4>Select Game Version</h4>
+                                <p>Choose which Minecraft version you want to play</p>
+                            </div>
+                        </div>
+                        <div class="setup-item">
+                            <div class="setup-icon">&#9881;</div>
+                            <div class="setup-text">
+                                <h4>Configure Settings</h4>
+                                <p>Adjust RAM allocation, graphics, and controls</p>
+                            </div>
+                        </div>
+                        <div class="setup-item">
+                            <div class="setup-icon">&#9889;</div>
+                            <div class="setup-text">
+                                <h4>Download Assets</h4>
+                                <p>The client will automatically download required game files</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Start Playing!</h3>
+                    <p>Click the big <strong>"PLAY"</strong> button and enjoy Minecraft with Block Forge!</p>
+                    <div class="play-features">
+                        <div class="play-feature">
+                            <span>&#127760;</span>
+                            <p>Join multiplayer servers</p>
+                        </div>
+                        <div class="play-feature">
+                            <span>&#127968;</span>
+                            <p>Create singleplayer worlds</p>
+                        </div>
+                        <div class="play-feature">
+                            <span>&#128230;</span>
+                            <p>Install mods & shaders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <section class="instruction-section troubleshooting">
+                <div class="section-icon">&#128295;</div>
+                <h2>Troubleshooting</h2>
+                <p class="section-description">Having issues? Check these common solutions.</p>
+            </section>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>The installer won't run on Windows</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>First, make sure you've extracted the ZIP file before running the installer. Right-click the ZIP and select "Extract All...". Then run the <code>BlockForge-Setup.exe</code> from the extracted folder. If Windows SmartScreen appears, click <strong>"More info"</strong> then <strong>"Run anyway"</strong>. If issues persist, temporarily disable your antivirus during installation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>"Java not found" error</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Block Forge requires Java 17 or higher. Download it from <a href="https://adoptium.net/" target="_blank">Adoptium</a> (recommended) or <a href="https://www.oracle.com/java/technologies/downloads/" target="_blank">Oracle</a>. After installing Java, restart Block Forge.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Game crashes on launch</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Try these steps:</p>
+                        <ol>
+                            <li>Allocate more RAM in Settings (minimum 4GB recommended)</li>
+                            <li>Update your graphics drivers</li>
+                            <li>Disable mods and try launching vanilla first</li>
+                            <li>Delete the <code>.blockforge</code> folder and reinstall</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Low FPS / Poor performance</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Optimize your settings:</p>
+                        <ol>
+                            <li>Lower render distance (8-12 chunks recommended)</li>
+                            <li>Disable fancy graphics and smooth lighting</li>
+                            <li>Install OptiFine from the Mods menu</li>
+                            <li>Allocate more RAM if you have it available</li>
+                            <li>Close background applications</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can't connect to servers</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Check these common causes:</p>
+                        <ol>
+                            <li>Verify your internet connection</li>
+                            <li>Make sure you're using the correct server version</li>
+                            <li>Check if the server is online</li>
+                            <li>Disable VPN if you're using one</li>
+                            <li>Allow Block Forge through your firewall</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Requirements -->
+            <section class="instruction-section">
+                <div class="section-icon">&#128187;</div>
+                <h2>System Requirements</h2>
+            </section>
+
+            <div class="requirements-grid">
+                <div class="requirements-card">
+                    <h3>Minimum</h3>
+                    <ul>
+                        <li><strong>OS:</strong> Windows 10, macOS 10.14, Ubuntu 18.04</li>
+                        <li><strong>CPU:</strong> Intel Core i3 / AMD Ryzen 3</li>
+                        <li><strong>RAM:</strong> 4 GB</li>
+                        <li><strong>GPU:</strong> Intel HD 4000 / AMD Radeon R5</li>
+                        <li><strong>Storage:</strong> 500 MB + game files</li>
+                        <li><strong>Java:</strong> Version 17 or higher</li>
+                    </ul>
+                </div>
+                <div class="requirements-card recommended">
+                    <div class="recommended-badge">Recommended</div>
+                    <h3>Recommended</h3>
+                    <ul>
+                        <li><strong>OS:</strong> Windows 11, macOS 12, Ubuntu 22.04</li>
+                        <li><strong>CPU:</strong> Intel Core i5 / AMD Ryzen 5</li>
+                        <li><strong>RAM:</strong> 8 GB or more</li>
+                        <li><strong>GPU:</strong> NVIDIA GTX 1060 / AMD RX 580</li>
+                        <li><strong>Storage:</strong> SSD with 2 GB free</li>
+                        <li><strong>Java:</strong> Version 21 (latest)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Need Help -->
+            <section class="help-section">
+                <div class="help-content">
+                    <h2>Still Need Help?</h2>
+                    <p>Join our community for support and updates!</p>
+                    <div class="help-buttons">
+                        <a href="#" class="btn btn-discord unavailable-link" data-message="Sorry, can't open Discord right now">
+                            <span>&#128172;</span>
+                            Join Discord
+                        </a>
+                        <a href="#" class="btn btn-secondary unavailable-link" data-message="Sorry, can't open Wiki right now">
+                            <span>&#128214;</span>
+                            View Wiki
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="error-modal" id="errorModal">
+        <div class="error-modal-content">
+            <button class="modal-close" id="errorModalClose">&times;</button>
+            <div class="error-icon">&#9888;</div>
+            <h3>Oops!</h3>
+            <p id="errorMessage">Sorry, this feature is not available right now.</p>
+            <button class="btn btn-primary" id="errorModalOk">OK</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">&#9638;</span>
+                    <span class="logo-text">Block Forge</span>
+                </div>
+                <p>A product by InterSpaceStudios</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#download">Download</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Changelog right now">Changelog</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Discord right now">Discord</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Forums right now">Forums</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Wiki right now">Wiki</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Privacy Policy right now">Privacy Policy</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Terms of Service right now">Terms of Service</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open DMCA right now">DMCA</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 InterSpaceStudios. All rights reserved.</p>
+            <p class="disclaimer">Block Forge is not affiliated with Mojang Studios or Microsoft.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // ===== OS Tabs Functionality =====
+        const osTabs = document.querySelectorAll('.os-tab');
+        const osContents = document.querySelectorAll('.os-content');
+
+        osTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const os = tab.getAttribute('data-os');
+
+                // Remove active from all tabs and contents
+                osTabs.forEach(t => t.classList.remove('active'));
+                osContents.forEach(c => c.classList.remove('active'));
+
+                // Add active to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(os).classList.add('active');
+            });
+        });
+
+        // ===== FAQ Accordion =====
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('click', () => {
+                // Check if this item is already active
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                faqItems.forEach(i => i.classList.remove('active'));
+
+                // If it wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ===== Smooth Scroll for Anchor Links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ===== Animate Steps on Scroll =====
+        const stepCards = document.querySelectorAll('.step-card');
+
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px'
+        };
+
+        const stepObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Set initial state and observe
+        stepCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateX(-20px)';
+            card.style.transition = 'all 0.5s ease';
+            stepObserver.observe(card);
+        });
+
+        // ===== Copy Code Blocks =====
+        document.querySelectorAll('.os-content code').forEach(codeBlock => {
+            codeBlock.style.cursor = 'pointer';
+            codeBlock.title = 'Click to copy';
+
+            codeBlock.addEventListener('click', () => {
+                const text = codeBlock.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    // Show feedback
+                    const originalText = codeBlock.textContent;
+                    codeBlock.textContent = 'Copied!';
+                    codeBlock.style.background = 'rgba(0, 255, 136, 0.3)';
+
+                    setTimeout(() => {
+                        codeBlock.textContent = originalText;
+                        codeBlock.style.background = '';
+                    }, 1500);
+                });
+            });
+        });
+
+        // ===== Auto-detect OS and highlight tab =====
+        function detectOS() {
+            const userAgent = navigator.userAgent.toLowerCase();
+
+            if (userAgent.includes('win')) {
+                return 'windows';
+            } else if (userAgent.includes('mac')) {
+                return 'mac';
+            } else if (userAgent.includes('linux')) {
+                return 'linux';
+            }
+            return 'windows'; // default
+        }
+
+        // Auto-select the user's OS tab on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const detectedOS = detectOS();
+            const osTab = document.querySelector(`.os-tab[data-os="${detectedOS}"]`);
+
+            if (osTab) {
+                // Remove active from all
+                osTabs.forEach(t => t.classList.remove('active'));
+                osContents.forEach(c => c.classList.remove('active'));
+
+                // Activate detected OS
+                osTab.classList.add('active');
+                document.getElementById(detectedOS).classList.add('active');
+            }
+        });
+
+        // ===== Keyboard Navigation for FAQ =====
+        faqItems.forEach((item, index) => {
+            const question = item.querySelector('.faq-question');
+
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const nextItem = faqItems[index + 1];
+                    if (nextItem) {
+                        nextItem.querySelector('.faq-question').focus();
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const prevItem = faqItems[index - 1];
+                    if (prevItem) {
+                        prevItem.querySelector('.faq-question').focus();
+                    }
+                }
+            });
+        });
+
+        // ===== Error Modal for Unavailable Links =====
+        const errorModal = document.getElementById('errorModal');
+        const errorMessage = document.getElementById('errorMessage');
+        const errorModalClose = document.getElementById('errorModalClose');
+        const errorModalOk = document.getElementById('errorModalOk');
+
+        function showErrorModal(message) {
+            if (errorModal && errorMessage) {
+                errorMessage.textContent = message;
+                errorModal.classList.add('active');
+            }
+        }
+
+        function closeErrorModal() {
+            if (errorModal) {
+                errorModal.classList.remove('active');
+            }
+        }
+
+        // Handle unavailable link clicks
+        document.querySelectorAll('.unavailable-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const message = link.getAttribute('data-message') || 'Sorry, this feature is not available right now.';
+                showErrorModal(message);
+            });
+        });
+
+        // Close error modal events
+        if (errorModalClose) {
+            errorModalClose.addEventListener('click', closeErrorModal);
+        }
+
+        if (errorModalOk) {
+            errorModalOk.addEventListener('click', closeErrorModal);
+        }
+
+        if (errorModal) {
+            errorModal.addEventListener('click', (e) => {
+                if (e.target === errorModal) {
+                    closeErrorModal();
+                }
+            });
+        }
+
+        // Close error modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && errorModal && errorModal.classList.contains('active')) {
+                closeErrorModal();
+            }
+        });
+    </script>
+</body>
+</html>

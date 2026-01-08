@@ -1,0 +1,530 @@
+/* ===== Instructions Page Styles ===== */
+
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.instructions-page {
+    padding-top: 80px;
+}
+
+.instructions-hero {
+    text-align: center;
+    padding: 80px 5% 60px;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+}
+
+.instructions-hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--primary);
+    text-shadow: var(--glow);
+    margin-bottom: 1rem;
+}
+
+.instructions-hero p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+}
+
+.instructions-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5% 80px;
+}
+
+/* ===== Section Headers ===== */
+.instruction-section {
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+.section-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.instruction-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.section-description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* ===== Step Cards ===== */
+.step-card {
+    display: flex;
+    gap: 2rem;
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    border-color: rgba(0, 255, 136, 0.3);
+    transform: translateX(5px);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-1);
+    color: var(--bg-dark);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    border-radius: 12px;
+}
+
+.step-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.step-content a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.step-content a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Step Tip ===== */
+.step-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+}
+
+.tip-icon {
+    font-size: 1.3rem;
+}
+
+.step-tip span:last-child {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ===== OS Tabs ===== */
+.os-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.os-tab {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: var(--bg-dark);
+    border: 2px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.os-tab:hover {
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.os-tab.active {
+    background: rgba(0, 255, 136, 0.15);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.os-content {
+    display: none;
+    padding: 1rem;
+    background: var(--bg-dark);
+    border-radius: 8px;
+}
+
+.os-content.active {
+    display: block;
+}
+
+.os-content ol {
+    margin-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.os-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.os-content code {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+}
+
+/* ===== Launch Options ===== */
+.launch-options {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.launch-options li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-dark);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.option-icon {
+    font-size: 1.5rem;
+}
+
+/* ===== Setup Steps ===== */
+.setup-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.setup-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-dark);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+.setup-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.setup-text h4 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.setup-text p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ===== Play Features ===== */
+.play-features {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.play-feature {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.play-feature span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.play-feature p {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* ===== FAQ / Troubleshooting ===== */
+.troubleshooting {
+    margin-top: 80px;
+}
+
+.faq-container {
+    margin-bottom: 60px;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    border-color: var(--primary);
+    background: var(--bg-card-hover);
+}
+
+.faq-item.active .faq-question {
+    border-color: var(--primary);
+    border-radius: 10px 10px 0 0;
+    background: var(--bg-card-hover);
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--primary);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer p,
+.faq-answer ol {
+    padding: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.faq-answer ol {
+    padding-top: 0;
+    margin-left: 1.5rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer a {
+    color: var(--primary);
+}
+
+.faq-answer code {
+    background: rgba(0, 255, 136, 0.1);
+    color: var(--primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* ===== Requirements Grid ===== */
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 60px;
+}
+
+.requirements-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 255, 136, 0.1);
+    position: relative;
+}
+
+.requirements-card.recommended {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--gradient-1);
+    color: var(--bg-dark);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.requirements-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.requirements-card ul {
+    list-style: none;
+}
+
+.requirements-card li {
+    padding: 0.6rem 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.requirements-card li:last-child {
+    border-bottom: none;
+}
+
+.requirements-card li strong {
+    color: var(--text-primary);
+}
+
+/* ===== Help Section ===== */
+.help-section {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(0, 255, 136, 0.1) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.help-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.help-section > .help-content > p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.help-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-discord {
+    background: #5865F2;
+    color: white;
+    border: none;
+}
+
+.btn-discord:hover {
+    background: #4752c4;
+    transform: translateY(-3px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .step-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .os-tabs {
+        flex-direction: column;
+    }
+
+    .setup-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .play-features {
+        flex-direction: column;
+    }
+
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .help-buttons {
+        flex-direction: column;
+    }
+
+    .help-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructions-hero {
+        padding: 60px 5% 40px;
+    }
+
+    .instruction-section {
+        margin: 40px 0 30px;
+    }
+
+    .step-card {
+        padding: 1.5rem;
+    }
+
+    .faq-question {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}

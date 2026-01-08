@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Forge | Free Minecraft Client by InterSpaceStudios</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo">
+                <span class="logo-icon">&#9638;</span>
+                <span class="logo-text">Block Forge</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="instructions.html">Instructions</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="BLOCK FORGE">BLOCK FORGE</h1>
+            <p class="tagline">The Ultimate Free Minecraft Experience</p>
+            <p class="description">Unleash your creativity with our powerful, feature-rich client. Built by gamers, for gamers.</p>
+            <div class="cta-buttons">
+                <a href="#download" class="btn btn-primary">
+                    <span class="btn-icon">&#8595;</span>
+                    Download Now
+                </a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" data-target="150000">0</span>
+                    <span class="stat-label">Downloads</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="50000">0</span>
+                    <span class="stat-label">Active Players</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-target="99">0</span>
+                    <span class="stat-label">% Uptime</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Powerful Features</h2>
+            <p>Everything you need for the perfect Minecraft experience</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#9881;</div>
+                <h3>Performance Optimized</h3>
+                <p>Experience smooth gameplay with our advanced optimization engine. Get higher FPS even on low-end systems.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9733;</div>
+                <h3>Built-in Mods</h3>
+                <p>Access popular mods directly from the client. No manual installation required.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9741;</div>
+                <h3>Custom Skins</h3>
+                <p>Express yourself with unlimited skin customization options and our skin library.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9730;</div>
+                <h3>Shader Support</h3>
+                <p>Transform your world with stunning shaders. Easy one-click installation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9775;</div>
+                <h3>Server Browser</h3>
+                <p>Find and join servers instantly with our integrated server browser and favorites system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9888;</div>
+                <h3>Anti-Cheat Friendly</h3>
+                <p>Play on any server without issues. Our client is designed to be fully compliant.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="download-container">
+            <div class="download-info">
+                <h2>Ready to Play?</h2>
+                <p>Download Block Forge now and join thousands of players enjoying a better Minecraft experience.</p>
+                <ul class="requirements">
+                    <li><span>&#10003;</span> Windows 10/11, macOS, or Linux</li>
+                    <li><span>&#10003;</span> Java 17 or higher</li>
+                    <li><span>&#10003;</span> 4GB RAM minimum</li>
+                    <li><span>&#10003;</span> 500MB free disk space</li>
+                </ul>
+            </div>
+            <div class="download-card">
+                <div class="version-badge">Block Forge v2.5.1</div>
+                <h3>Select Minecraft Version</h3>
+
+                <div class="version-selector">
+                    <div class="version-dropdown" id="versionDropdown">
+                        <button class="version-selected" id="versionSelected">
+                            <span class="version-text">1.21.4</span>
+                            <span class="dropdown-arrow">&#9660;</span>
+                        </button>
+                        <div class="version-options" id="versionOptions">
+                            <div class="version-category">
+                                <span class="category-label">Latest Releases</span>
+                                <div class="version-option selected" data-version="1.21.4">1.21.4 <span class="tag new">NEW</span></div>
+                                <div class="version-option" data-version="1.21.3">1.21.3</div>
+                                <div class="version-option" data-version="1.21.2">1.21.2</div>
+                                <div class="version-option" data-version="1.21.1">1.21.1</div>
+                                <div class="version-option" data-version="1.21">1.21</div>
+                            </div>
+                            <div class="version-category">
+                                <span class="category-label">1.20.x</span>
+                                <div class="version-option" data-version="1.20.6">1.20.6</div>
+                                <div class="version-option" data-version="1.20.4">1.20.4 <span class="tag popular">POPULAR</span></div>
+                                <div class="version-option" data-version="1.20.2">1.20.2</div>
+                                <div class="version-option" data-version="1.20.1">1.20.1</div>
+                                <div class="version-option" data-version="1.20">1.20</div>
+                            </div>
+                            <div class="version-category">
+                                <span class="category-label">1.19.x</span>
+                                <div class="version-option" data-version="1.19.4">1.19.4</div>
+                                <div class="version-option" data-version="1.19.3">1.19.3</div>
+                                <div class="version-option" data-version="1.19.2">1.19.2 <span class="tag popular">POPULAR</span></div>
+                                <div class="version-option" data-version="1.19.1">1.19.1</div>
+                                <div class="version-option" data-version="1.19">1.19</div>
+                            </div>
+                            <div class="version-category">
+                                <span class="category-label">1.18.x</span>
+                                <div class="version-option" data-version="1.18.2">1.18.2</div>
+                                <div class="version-option" data-version="1.18.1">1.18.1</div>
+                                <div class="version-option" data-version="1.18">1.18</div>
+                            </div>
+                            <div class="version-category">
+                                <span class="category-label">1.17.x</span>
+                                <div class="version-option" data-version="1.17.1">1.17.1</div>
+                                <div class="version-option" data-version="1.17">1.17</div>
+                            </div>
+                            <div class="version-category">
+                                <span class="category-label">1.16.x</span>
+                                <div class="version-option" data-version="1.16.5">1.16.5 <span class="tag popular">POPULAR</span></div>
+                                <div class="version-option" data-version="1.16.4">1.16.4</div>
+                                <div class="version-option" data-version="1.16.3">1.16.3</div>
+                                <div class="version-option" data-version="1.16.2">1.16.2</div>
+                                <div class="version-option" data-version="1.16.1">1.16.1</div>
+                            </div>
+                            <div class="version-category">
+                                <span class="category-label">Legacy Versions</span>
+                                <div class="version-option" data-version="1.15.2">1.15.2</div>
+                                <div class="version-option" data-version="1.14.4">1.14.4</div>
+                                <div class="version-option" data-version="1.12.2">1.12.2 <span class="tag popular">POPULAR</span></div>
+                                <div class="version-option" data-version="1.8.9">1.8.9 <span class="tag classic">CLASSIC</span></div>
+                                <div class="version-option" data-version="1.7.10">1.7.10 <span class="tag classic">CLASSIC</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="file-size">Download Size: 85 MB (ZIP archive with installer)</p>
+
+                <div class="download-buttons">
+                    <button class="btn btn-download" data-os="windows">
+                        <span class="os-icon">&#9635;</span>
+                        Windows
+                    </button>
+                    <button class="btn btn-download" data-os="mac">
+                        <span class="os-icon">&#9788;</span>
+                        macOS
+                    </button>
+                    <button class="btn btn-download" data-os="linux">
+                        <span class="os-icon">&#9654;</span>
+                        Linux
+                    </button>
+                </div>
+                <p class="download-note">By downloading, you agree to our Terms of Service</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About InterSpaceStudios</h2>
+                <p>We are a passionate team of developers and gamers dedicated to creating the best gaming experiences. Block Forge is our flagship project, born from our love for Minecraft and our desire to make it accessible to everyone.</p>
+                <p>Our mission is to provide a free, high-quality client that enhances gameplay without compromising on performance or security.</p>
+                <div class="team-stats">
+                    <div class="team-stat">
+                        <span class="number">5+</span>
+                        <span class="label">Years Experience</span>
+                    </div>
+                    <div class="team-stat">
+                        <span class="number">12</span>
+                        <span class="label">Team Members</span>
+                    </div>
+                    <div class="team-stat">
+                        <span class="number">24/7</span>
+                        <span class="label">Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <div class="studio-logo">
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-ring"></div>
+                    <span class="studio-icon">&#9733;</span>
+                </div>
+                <h3>InterSpaceStudios</h3>
+                <p>Creating Worlds, Building Dreams</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-icon">&#9638;</span>
+                    <span class="logo-text">Block Forge</span>
+                </div>
+                <p>A product by InterSpaceStudios</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#download">Download</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Changelog right now">Changelog</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Discord right now">Discord</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Forums right now">Forums</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Wiki right now">Wiki</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Privacy Policy right now">Privacy Policy</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open Terms of Service right now">Terms of Service</a>
+                    <a href="#" class="unavailable-link" data-message="Sorry, can't open DMCA right now">DMCA</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 InterSpaceStudios. All rights reserved.</p>
+            <p class="disclaimer">Block Forge is not affiliated with Mojang Studios or Microsoft.</p>
+        </div>
+    </footer>
+
+    <div class="error-modal" id="errorModal">
+        <div class="error-modal-content">
+            <button class="modal-close" id="errorModalClose">&times;</button>
+            <div class="error-icon">&#9888;</div>
+            <h3>Oops!</h3>
+            <p id="errorMessage">Sorry, this feature is not available right now.</p>
+            <button class="btn btn-primary" id="errorModalOk">OK</button>
+        </div>
+    </div>
+
+    <div class="download-modal" id="downloadModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-icon">&#8595;</div>
+            <h3>Preparing Download...</h3>
+            <p id="downloadOS">Block Forge for Windows</p>
+            <p id="downloadVersion">Minecraft 1.21.4</p>
+            <div class="progress-bar">
+                <div class="progress" id="downloadProgress"></div>
+            </div>
+            <p class="modal-note">Your download will begin automatically</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
