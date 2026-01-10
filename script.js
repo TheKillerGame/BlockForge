@@ -128,16 +128,18 @@ document.querySelectorAll('.version-option').forEach(option => {
     });
 });
 
-// ===== Download Modal =====
+const downloadButtons = document.querySelectorAll('.btn-download');
 const downloadModal = document.getElementById('downloadModal');
 const modalClose = document.getElementById('modalClose');
 const downloadProgress = document.getElementById('downloadProgress');
 const downloadOS = document.getElementById('downloadOS');
 const downloadVersion = document.getElementById('downloadVersion');
-const downloadButtons = document.querySelectorAll('.btn-download');
 
-// The same download file for all versions - replace with your actual download URL
-const DOWNLOAD_URL = 'https://github.com/InterSpaceStudios/BlockForge/releases/download/v1.0/BlockForge.zip';
+const downloadLinks = {
+    windows: 'https://github.com/InterSpaceStudios/BlockForge/releases/download/v1.0/BlockForge.zip',
+    mac: 'https://github.com/InterSpaceStudios/BlockForge/releases/download/v1.0/BlockForge-mac.zip',
+    linux: 'https://github.com/InterSpaceStudios/BlockForge/releases/download/v1.0/BlockForge-linux.zip'
+};
 
 function showDownloadModal(os) {
     const osNames = {
@@ -162,27 +164,20 @@ function showDownloadModal(os) {
 
             // Trigger actual download after animation completes
             setTimeout(() => {
-                triggerDownload();
+                triggerDownload(os);
             }, 500);
         }
         downloadProgress.style.width = progress + '%';
     }, 200);
 }
 
-function triggerDownload() {
-    // Create a temporary link and click it to trigger download
-    // All versions download the same file (ZIP containing the installer)
+function triggerDownload(os) {
     const link = document.createElement('a');
-    link.href = DOWNLOAD_URL;
+    link.href = downloadLinks[os]; // <-- Use the correct GitHub URL
     link.download = `BlockForge-${selectedVersion}.zip`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-}
-
-function closeModal() {
-    downloadModal.classList.remove('active');
-    downloadProgress.style.width = '0%';
 }
 
 downloadButtons.forEach(btn => {
@@ -192,13 +187,11 @@ downloadButtons.forEach(btn => {
     });
 });
 
-modalClose.addEventListener('click', closeModal);
-
-downloadModal.addEventListener('click', (e) => {
-    if (e.target === downloadModal) {
-        closeModal();
-    }
+modalClose.addEventListener('click', () => {
+    downloadModal.classList.remove('active');
+    downloadProgress.style.width = '0%';
 });
+
 
 // Close modal with Escape key
 document.addEventListener('keydown', (e) => {
