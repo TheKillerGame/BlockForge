@@ -137,7 +137,7 @@ const downloadVersion = document.getElementById('downloadVersion');
 const downloadButtons = document.querySelectorAll('.btn-download');
 
 // The same download file for all versions - replace with your actual download URL
-const DOWNLOAD_URL = 'BlockForge.zip';
+const DOWNLOAD_URL = 'https://github.com/InterSpaceStudios/BlockForge/releases/download/v1.0/BlockForge.zip';
 
 function showDownloadModal(os) {
     const osNames = {
